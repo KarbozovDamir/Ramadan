@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "damir",
+            "database": "${workspaceFolder:ramadan_of_2021}/ramadansite/db.sqlite3"
+        }
+    ]
+}
