@@ -8,13 +8,11 @@ def index(request):
 
 def api(request):
     data = {
-        'name': request.user.username,  # username of current logged-in user, otherwise Anonymous
+        'name': request.user.username,  # username of current logged-in user
         'skills': ['Python', 'Django'],
     }
     return JsonResponse(data)
 
-# def api(request):
-#     return HttpResponse("<h1>API</h1>")
 
 def categories(request, catid):
     if(request.POST):
