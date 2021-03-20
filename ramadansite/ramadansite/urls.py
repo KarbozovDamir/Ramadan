@@ -21,7 +21,7 @@ from ramadan2021.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('ramadan2021.urls')),
-    
+
 ]
 
 handler404 = pageNotFound
