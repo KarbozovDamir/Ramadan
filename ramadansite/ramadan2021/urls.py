@@ -2,10 +2,10 @@ from django.urls import path
 
 from .views import *
 
+
 urlpatterns = [
     path('', index),
-    path('cats/<int:catid>/', categories),
-    path('api/', api),
-    path('api/cats/<int:catid>/', categories),
-    
+    path('api/categories/', api),
+    path('api/categories/<int:catid>/', categories),
+
 ]

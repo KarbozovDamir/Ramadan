@@ -1,6 +1,12 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseNotFound
 from django.http import JsonResponse
+# from rest_framework.response import Response
+# from rest_framework.views import APIView
+
+from .models import *
+
+# app_name = "ramadan2021"
 
 
 def index(request):
@@ -13,13 +19,20 @@ def api(request):
     }
     return JsonResponse(data)
 
-
 def categories(request, catid):
-    if(request.POST):
-        print(request.POST)
+    data = {
+        'question': ['answer'],
+    }
+    return JsonResponse(data)
 
-    return HttpResponse(f"<h1>Категории</h1><p>{catid}</p>")
 
 
 def pageNotFound(request, exception):
     return HttpResponseNotFound('<h1>Page not found</h1>')
+
+
+# def categories(request, catid):
+#     if(request.POST):
+#         print(request.POST)
+
+#     return HttpResponse(f"<h1>Категории</h1><p>{catid}</p>")

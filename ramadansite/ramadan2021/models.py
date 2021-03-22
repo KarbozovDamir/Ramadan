@@ -1,13 +1,12 @@
 from django.db import models
 
 class Answer(models.Model):
-    answer_text = models.CharField(max_length=200, verbose_name="Ответ")
-    content = models.TextField(blank=True, verbose_name="Текст статьи")
+    category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True, verbose_name="Категории")
     title = models.CharField(max_length=255, verbose_name="Заголовок")
-    cat = models.ForeignKey('Category',on_delete=models.PROTECT, null=True, verbose_name="Категории")
+    content = models.TextField(blank=True, verbose_name="Текст статьи")
 
     def __str__(self):
-        return self.answer_text
+        return self.title
 
     def get_absolute_url(self):
         return reverse('post', kwargs={'post_id': self.pk})
@@ -20,7 +19,7 @@ class Answer(models.Model):
         
 
 class Category(models.Model):
-    name = models.CharField(max_length=100, db_index=True, verbose_name="категория")
+    name = models.CharField(max_length=255, db_index=True, verbose_name="категория")
     
     def __str__(self):
         return self.name
