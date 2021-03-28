@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Answer(models.Model):
     category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True, verbose_name="Категории")
@@ -25,7 +26,7 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('post', kwargs={'post_id': self.pk})
+        return reverse('category', kwargs={'cat_id': self.pk})
     
     class Meta:
         verbose_name = 'категории'
